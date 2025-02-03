@@ -12,7 +12,7 @@ const SearchInput = () => {
         />
         <Button className="text-[10px]">Yes, Please!</Button>
       </div>
-      <div className="flex justify-center space-x-6 pt-2">
+      <div className="flex justify-center items-center space-x-6 pt-2">
         <img src="/youtube.svg" alt="logo" />
         <img src="/Vector.svg" alt="logo" />
         <img src="/twitter.svg" alt="logo" />
