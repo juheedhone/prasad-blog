@@ -9,7 +9,7 @@ const ShowMoreButton = () => {
       <img src="/add.svg" alt="" />
       Show more
     </Button>
-  );
+   );
 };
 
 export default ShowMoreButton;

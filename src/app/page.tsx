@@ -1,3 +1,5 @@
+import Article from "@/components/Article";
+import ArticleDialog from "@/components/ArticleDialog";
 import Badge from "@/components/Badge";
 import ShowMoreButton from "@/components/ShowMoreButton";
 
@@ -19,13 +21,23 @@ const Page = () => {
         <ShowMoreButton />
       </div>
       {/* Cards */}
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <Article heading="Trending marketing hack for fashion" time={2} />
-        <Article heading="Trending marketing hack for fashion" time={2} />
-        <Article heading="Trending marketing hack for fashion" time={2} />
-        <Article heading="Trending marketing hack for fashion" time={2} />
-        <Article heading="Trending marketing hack for fashion" time={2} />
-      </div> */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <ArticleDialog>
+          <Article heading="Trending marketing hack for fashion" time={2} />
+        </ArticleDialog>
+        <ArticleDialog>
+          <Article heading="Trending marketing hack for fashion" time={2} />
+        </ArticleDialog>
+        <ArticleDialog>
+          <Article heading="Trending marketing hack for fashion" time={2} />
+        </ArticleDialog>
+        <ArticleDialog>
+          <Article heading="Trending marketing hack for fashion" time={2} />
+        </ArticleDialog>
+        <ArticleDialog>
+          <Article heading="Trending marketing hack for fashion" time={2} />
+        </ArticleDialog>
+      </div>
 
       {/* search Input */}
       {/* <SearchInput /> */}
