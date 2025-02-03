@@ -1,5 +1,5 @@
 import { EyeOpenIcon } from "@radix-ui/react-icons";
-import Badge from "./Badge";
+import DialogBadge from "./DialogBadge";
 
 interface Props {
   heading: string;
@@ -7,7 +7,7 @@ interface Props {
 }
 const ArticleCard = ({ heading, time }: Props) => {
   return (
-    <article className="w-80 border-2 h-40 rounded-xl relative p-4 overflow-hidden">
+    <article className="w-80 max-w-full border-2 h-40 rounded-xl relative p-4 overflow-hidden">
       <div className="bg-[url(/MaskGroup.png)] absolute inset-0 brightness-50 -z-10 h-full" />
       <div className="flex flex-col justify-between h-full">
         <h1 className=" text-white text-sm font-bold">{heading}</h1>
@@ -15,9 +15,9 @@ const ArticleCard = ({ heading, time }: Props) => {
           <EyeOpenIcon className="mr-1 " />
           <p>{time} Mins</p>
         </div>
-        {/* <div className=" absolute bottom-4 text-white right-4">
-          <Badge name="shrikant" color="" />
-        </div> */}
+        <div className=" absolute bottom-4 text-white right-4">
+          <DialogBadge />
+        </div>
       </div>
     </article>
   );
