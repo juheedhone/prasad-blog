@@ -2,7 +2,7 @@ import { Button } from "./ui/button";
 
 const SearchInput = () => {
   return (
-    <div className=" ">
+    <div className="fixed bottom-0 right-0 left-0 p-4 bg-white z-10 border-t-2 ">
       <div className="flex border rounded-lg shadow-sm p-2 text-[10px] font-normal">
         <input
           type="email"
