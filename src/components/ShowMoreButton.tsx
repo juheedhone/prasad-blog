@@ -2,12 +2,13 @@ import { Button } from "./ui/button";
 
 const ShowMoreButton = () => {
   return (
-    <div className="flex items-center">
-      <img src="/add.svg" alt="add" />
-      <Button variant="ghost" className="text-[#0288D1] p-0">
-        Show more
-      </Button>
-    </div>
+    <Button
+      variant="ghost"
+      className="text-[#0288D1] hover:text-[#0288d1] rounded-xl"
+    >
+      <img src="/add.svg" alt="" />
+      Show more
+    </Button>
   );
 };
 

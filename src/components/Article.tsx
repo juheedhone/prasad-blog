@@ -1,5 +1,5 @@
 import { EyeOpenIcon } from "@radix-ui/react-icons";
-import DialogBadge from "./DialogBadge";
+import DialogBadge from "./SmallBadge";
 
 interface Props {
   heading: string;
