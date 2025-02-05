@@ -12,9 +12,7 @@ import useIsMobile from "./hooks/useIsMobile";
 const Page = () => {
 	const isMobile = useIsMobile();
 	const [articleId, setArticleId] = useQueryState("article");
-	const [badgeShowLimit, setBadgeShowLimit] = useState(
-		isMobile ? 5 : TAGS.length,
-	);
+	const [badgeShowLimit, setBadgeShowLimit] = useState(5);
 
 	return (
 		<Suspense>
@@ -31,12 +29,10 @@ const Page = () => {
 								);
 							}
 						})}
-						{isMobile && (
-							<ShowMoreButton
-								onClick={setBadgeShowLimit}
-								badgeShowLimit={badgeShowLimit}
-							/>
-						)}
+						<ShowMoreButton
+							onClick={setBadgeShowLimit}
+							badgeShowLimit={badgeShowLimit}
+						/>
 					</div>
 					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 sm:items-center">
 						{Array(10)
