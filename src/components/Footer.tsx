@@ -5,7 +5,6 @@ const Footer = () => {
 	return (
 		<div className="fixed bottom-0 right-0 left-0 p-4 bg-white z-10  md:hidden">
 			<SearchInput />
-
 			<IconModal />
 		</div>
 	);

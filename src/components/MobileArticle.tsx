@@ -54,6 +54,7 @@ const MobileArticle = () => {
 						asking for anything. Responses went from 5% to 25%.”
 						<br /> Don't ask, don't get
 					</p>
+					<img src="lapArticle.svg" alt="" className="pt-0 p-8" />
 				</>
 			)}
 		</div>

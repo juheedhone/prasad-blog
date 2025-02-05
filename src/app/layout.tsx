@@ -28,7 +28,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen *:max-w-5xl *:mx-auto`}
+				className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen`}
 			>
 				<NuqsAdapter>
 					<NavBar />

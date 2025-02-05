@@ -21,7 +21,7 @@ const Page = () => {
 			{articleId && isMobile ? (
 				<MobileArticle />
 			) : (
-				<div className=" px-4 pb-36 pt-28 h-full">
+				<div className="px-4 pb-36 pt-28 h-full sm:px-8 md:px-10 lg:px-20 xl:px-24">
 					<p className="font-bold text-xl pb-4 ">Tags</p>
 					<div className="pb-8 gap-2 sm:gap-4 flex flex-wrap">
 						{TAGS.map((tag, index) => {
@@ -38,7 +38,7 @@ const Page = () => {
 							/>
 						)}
 					</div>
-					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:items-center">
+					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 sm:items-center">
 						{Array(10)
 							.fill(0)
 							.map((_, index) => (

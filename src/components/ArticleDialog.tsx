@@ -1,10 +1,9 @@
 import useIsMobile from "@/app/hooks/useIsMobile";
 import { ReloadIcon } from "@radix-ui/react-icons";
-import { useRouter } from "next/navigation";
 import { useQueryState } from "nuqs";
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
-import MobileArticle from "./MobileArticle";
+import LaptopArticle from "./LaptopArticle";
 import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 
 interface Props {
@@ -16,7 +15,6 @@ const ArticleDialog = ({ children }: Props) => {
 	const [loading, setLoading] = useState(false);
 
 	const isMobile = useIsMobile();
-	const router = useRouter();
 
 	useEffect(() => {
 		if (open) {
@@ -39,12 +37,15 @@ const ArticleDialog = ({ children }: Props) => {
 	return (
 		<Dialog open={open} onOpenChange={handleOpen}>
 			<DialogTrigger>{children}</DialogTrigger>
-			<DialogContent className="sm:max-w-[320px] rounded-md">
+			<DialogContent
+				className="border-none max-w-[60%] p-0 pb-4 max-h-[80%] rounded-md overflow-scroll"
+				closeButtonClassName="text-white"
+			>
 				<div className="flex flex-col items-center justify-center">
 					{loading ? (
 						<ReloadIcon className="animate-spin" />
 					) : (
-						<MobileArticle />
+						<LaptopArticle />
 					)}
 				</div>
 			</DialogContent>
