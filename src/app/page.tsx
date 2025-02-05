@@ -2,13 +2,14 @@
 import Article from "@/components/Article";
 import ArticleDialog from "@/components/ArticleDialog";
 import Badge from "@/components/Badge";
+import LaptopArtical from "@/components/LaptopArticle";
 import ShowMoreButton from "@/components/ShowMoreButton";
 import { TAGS } from "@/constants/tags.constants";
 import { useState } from "react";
 
 const Page = () => {
 	const [badgeShowLimit, setBadgeShowLimit] = useState(5);
-	
+
 	return (
 		<div className=" px-4 pb-36 pt-28 h-full">
 			<p className="font-bold text-xl pb-4 ">Tags</p>
@@ -24,11 +25,12 @@ const Page = () => {
 				{Array(10)
 					.fill(0)
 					.map((_, index) => (
-						<ArticleDialog key={Math.random().toString()}>
+						<ArticleDialog key={0}>
 							<Article heading="Trending marketing hack for fashion" time={2} />
 						</ArticleDialog>
 					))}
 			</div>
+
 		</div>
 	);
 };
