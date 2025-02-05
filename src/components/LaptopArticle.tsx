@@ -34,7 +34,7 @@ const LaptopArticle = () => {
 				anything. Responses went from 5% to 25%.”
 				<br />
 				Don't ask, don't get
-				<div className="flex justify-center *:w-80 items-center space-x-4 my-6 w-full">
+				<div className="flex justify-center *:xl:w-80 *:sm:w-52 *:lg:w-60 items-center space-x-4 my-6 w-full">
 					<img src="/lapArticle.svg" alt="" />
 					<img src="/lapArticle.svg" alt="" />
 				</div>
