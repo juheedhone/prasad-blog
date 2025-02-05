@@ -10,7 +10,7 @@ const ArticleCard = ({ heading, time }: Props) => {
 		<article className="w-full h-40 rounded-xl relative p-4 overflow-hidden md:max-w-72">
 			<div className="bg-[url(/card-bg.jpeg)] absolute inset-0 brightness-50 -z-10 h-full" />
 			<div className="flex flex-col justify-between h-full">
-				<h1 className=" text-white text-sm font-bold">{heading}</h1>
+				<h1 className=" text-white text-left text-sm font-bold">{heading}</h1>
 				<div className="text-white flex items-center text-xs">
 					<EyeOpenIcon className="mr-1 " />
 					<p>{time} Mins</p>

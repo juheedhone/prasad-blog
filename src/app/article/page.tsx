@@ -1,7 +1,11 @@
-import MobileArticle from "@/components/MobileArticle";
+import Page from "../page";
 
 const page = () => {
-  return <MobileArticle />;
+	return (
+		<>
+			<Page />
+		</>
+	);
 };
 
 export default page;

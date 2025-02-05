@@ -2,6 +2,7 @@ import Footer from "@/components/Footer";
 import NavBar from "@/components/NavBar";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,9 +30,11 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen *:max-w-5xl *:mx-auto`}
 			>
-				<NavBar />
-				{children}
-				<Footer />
+				<NuqsAdapter>
+					<NavBar />
+					{children}
+					<Footer />
+				</NuqsAdapter>
 			</body>
 		</html>
 	);
