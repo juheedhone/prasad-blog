@@ -2,13 +2,16 @@
 import Article from "@/components/Article";
 import ArticleDialog from "@/components/ArticleDialog";
 import Badge from "@/components/Badge";
-import LaptopArtical from "@/components/LaptopArticle";
 import ShowMoreButton from "@/components/ShowMoreButton";
 import { TAGS } from "@/constants/tags.constants";
 import { useState } from "react";
+import useIsMobile from "./hooks/useIsMobile";
 
 const Page = () => {
-	const [badgeShowLimit, setBadgeShowLimit] = useState(5);
+	const isMobile = useIsMobile();
+	const [badgeShowLimit, setBadgeShowLimit] = useState(
+		isMobile ? 5 : TAGS.length,
+	);
 
 	return (
 		<div className=" px-4 pb-36 pt-28 h-full">
@@ -19,7 +22,7 @@ const Page = () => {
 						return <Badge key={tag.name} name={tag.name} color={tag.color} />;
 					}
 				})}
-				<ShowMoreButton onClick={setBadgeShowLimit} />
+				{isMobile && <ShowMoreButton onClick={setBadgeShowLimit} />}
 			</div>
 			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 				{Array(10)
@@ -30,7 +33,6 @@ const Page = () => {
 						</ArticleDialog>
 					))}
 			</div>
-
 		</div>
 	);
 };
