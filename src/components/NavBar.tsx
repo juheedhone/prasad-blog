@@ -1,3 +1,5 @@
+import SearchInput from "./SearchInput";
+
 const NavBar = () => {
 	return (
 		<div className="flex justify-between fixed top-0 right-0 left-0 p-4 bg-white z-10 border-b-2">
@@ -5,7 +7,9 @@ const NavBar = () => {
 				<img src="navLogo.png" alt="logo" className="w-10 h-10" />
 				<h1 className="font-bold text-xl max-w-28">Marketing Prasad</h1>
 			</div>
-
+			<div className="hidden md:block">
+				<SearchInput />
+			</div>
 			<div>
 				<img src="chamburger.png" alt="filter" />
 			</div>

@@ -7,7 +7,7 @@ const SearchInput = () => {
 				type="email"
 				id="email"
 				placeholder="Subscribe to tips over email"
-				className="outline-none w-0  flex-grow"
+				className="outline-none flex-grow"
 			/>
 			<SubscribeModal />
 		</>
