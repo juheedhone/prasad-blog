@@ -14,12 +14,9 @@ const SearchInput = ({ className }: Props) => {
 			)}
 		>
 			<SubscribeModal>
-				<input
-					type="email"
-					id="email"
-					placeholder="Subscribe to tips over email"
-					className="outline-none w-full"
-				/>
+				<p className="text-left text-gray-400 w-full">
+					Subscribe to tips over email
+				</p>
 				<Button className="text-[10px] lg:text-sm">Yes, Please!</Button>
 			</SubscribeModal>
 		</div>

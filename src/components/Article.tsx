@@ -1,3 +1,4 @@
+import { getRandomTags } from "@/lib/utils";
 import { EyeOpenIcon } from "@radix-ui/react-icons";
 import DialogBadge from "./SmallBadge";
 
@@ -16,7 +17,7 @@ const ArticleCard = ({ heading, time }: Props) => {
 					<p>{time} Mins</p>
 				</div>
 				<div className=" absolute bottom-4 text-white right-4">
-					<DialogBadge />
+					<DialogBadge {...getRandomTags()} />
 				</div>
 			</div>
 		</article>

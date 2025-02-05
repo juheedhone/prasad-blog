@@ -1,8 +1,8 @@
 import useIsMobile from "@/app/hooks/useIsMobile";
-import { ReloadIcon } from "@radix-ui/react-icons";
+import { useRouter } from "next/navigation";
 import { useQueryState } from "nuqs";
 import type { ReactNode } from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import LaptopArticle from "./LaptopArticle";
 import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 
@@ -12,21 +12,13 @@ interface Props {
 const ArticleDialog = ({ children }: Props) => {
 	const [articleId, setArticleId] = useQueryState("article");
 	const [open, setOpen] = useState(false);
-	const [loading, setLoading] = useState(false);
+	const router = useRouter();
 
 	const isMobile = useIsMobile();
 
-	useEffect(() => {
-		if (open) {
-			setLoading(true);
-			const timer = setTimeout(() => setLoading(false), 500);
-			return () => clearTimeout(timer);
-		}
-	}, [open]);
-
 	const handleOpen = (open: boolean) => {
 		if (open === true) {
-			setArticleId("article123");
+			router.push("/?article=article123");
 			!isMobile && setOpen(true);
 		} else {
 			setArticleId(null);
@@ -42,11 +34,7 @@ const ArticleDialog = ({ children }: Props) => {
 				closeButtonClassName="text-white"
 			>
 				<div className="flex flex-col items-center justify-center">
-					{loading ? (
-						<ReloadIcon className="animate-spin" />
-					) : (
-						<LaptopArticle />
-					)}
+					<LaptopArticle />
 				</div>
 			</DialogContent>
 		</Dialog>

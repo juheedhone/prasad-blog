@@ -1,3 +1,4 @@
+import { getRandomTags } from "@/lib/utils";
 import {
 	EyeOpenIcon,
 	InstagramLogoIcon,
@@ -19,7 +20,7 @@ const LaptopArticle = () => {
 					<p>2 Mins</p>
 				</div>
 				<div className=" absolute bottom-4 text-white right-4">
-					<DialogBadge />
+					<DialogBadge {...getRandomTags()} />
 				</div>
 			</article>
 
@@ -33,7 +34,7 @@ const LaptopArticle = () => {
 				anything. Responses went from 5% to 25%.”
 				<br />
 				Don't ask, don't get
-				<div className="flex justify-between items-center space-x-4 my-6 w-full">
+				<div className="flex justify-center *:w-80 items-center space-x-4 my-6 w-full">
 					<img src="/lapArticle.svg" alt="" />
 					<img src="/lapArticle.svg" alt="" />
 				</div>
