@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import SubscribeModal from "./SubscribeModal";
+import { Button } from "./ui/button";
 
 interface Props {
 	className?: string;
@@ -12,13 +13,15 @@ const SearchInput = ({ className }: Props) => {
 				className,
 			)}
 		>
-			<input
-				type="email"
-				id="email"
-				placeholder="Subscribe to tips over email"
-				className="outline-none flex-1"
-			/>
-			<SubscribeModal />
+			<SubscribeModal>
+				<input
+					type="email"
+					id="email"
+					placeholder="Subscribe to tips over email"
+					className="outline-none w-full"
+				/>
+				<Button className="text-[10px] lg:text-sm">Yes, Please!</Button>
+			</SubscribeModal>
 		</div>
 	);
 };

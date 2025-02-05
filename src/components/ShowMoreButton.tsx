@@ -3,16 +3,17 @@ import { Button } from "./ui/button";
 
 interface Props {
 	onClick: (value: number) => void;
+	badgeShowLimit: number;
 }
-const ShowMoreButton = ({ onClick }: Props) => {
+const ShowMoreButton = ({ onClick, badgeShowLimit }: Props) => {
 	return (
 		<Button
-			onClick={() => onClick(TAGS.length)}
+			onClick={() => onClick(badgeShowLimit > 5 ? 5 : TAGS.length)}
 			variant="ghost"
 			className="text-[#0288D1] hover:text-[#0288d1] rounded-xl"
 		>
 			<img src="/add.svg" alt="" />
-			Show more
+			{badgeShowLimit > 5 ? "Show Less" : "Show More"}
 		</Button>
 	);
 };
