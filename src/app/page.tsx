@@ -6,7 +6,7 @@ import MobileArticle from "@/components/MobileArticle";
 import ShowMoreButton from "@/components/ShowMoreButton";
 import { TAGS } from "@/constants/tags.constants";
 import { useQueryState } from "nuqs";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import useIsMobile from "./hooks/useIsMobile";
 
 const Page = () => {
@@ -17,7 +17,7 @@ const Page = () => {
 	);
 
 	return (
-		<>
+		<Suspense>
 			{articleId && isMobile ? (
 				<MobileArticle />
 			) : (
@@ -52,7 +52,7 @@ const Page = () => {
 					</div>
 				</div>
 			)}
-		</>
+		</Suspense>
 	);
 };
 

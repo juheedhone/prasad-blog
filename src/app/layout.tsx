@@ -3,6 +3,7 @@ import NavBar from "@/components/NavBar";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
+import { Suspense } from "react";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -30,11 +31,13 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen`}
 			>
-				<NuqsAdapter>
-					<NavBar />
-					{children}
-					<Footer />
-				</NuqsAdapter>
+				<Suspense>
+					<NuqsAdapter>
+						<NavBar />
+						{children}
+						<Footer />
+					</NuqsAdapter>
+				</Suspense>
 			</body>
 		</html>
 	);
