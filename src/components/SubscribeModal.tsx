@@ -12,14 +12,14 @@ const SubscribeModal = ({ children }: Props) => {
 				{children}
 			</DialogTrigger>
 			<DialogContent
-				className="p-0 w-[90%] m-4 overflow-hidden rounded-md md:w-[60%] lg:w-[40%] max-w-lg border-none"
+				className="p-0 w-[80%] overflow-hidden rounded-md md:w-[60%] lg:w-[40%] max-w-lg border-none"
 				closeButtonClassName="text-white"
 			>
-				<div className="bg-black text-white text-[22px] font-bold h-20 flex items-center rounded-t-sm justify-center">
+				<div className="bg-black text-white  md:text-[22px] font-bold h-20 flex items-center rounded-t-sm justify-center">
 					Subscribe to Newsletter
 				</div>
-				<div className="p-10 space-y-6 text-lg">
-					<div className="leading-8">
+				<div className="p-10 space-y-6 md:text-lg">
+					<div className="md:leading-8">
 						<p>Hey, I'm Prasad. Every Monday I share:</p>
 						<ul className="list-inside list-disc">
 							<li>3 short examples</li>
