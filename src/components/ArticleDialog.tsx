@@ -34,7 +34,7 @@ const ArticleDialog = ({ children }: Props) => {
 				closeButtonClassName="text-white"
 			>
 				<div className="flex flex-col items-center justify-center">
-					<LaptopArticle />
+					<LaptopArticle  tag={'photography'} />
 				</div>
 			</DialogContent>
 		</Dialog>

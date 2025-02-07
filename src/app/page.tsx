@@ -26,7 +26,7 @@ const Page = () => {
 	return (
 		<Suspense>
 			{articleId && isMobile ? (
-				<MobileArticle />
+				<MobileArticle tag="fashion" />
 			) : (
 				<div className="px-4 pb-36 pt-28 h-full sm:px-8 md:px-10 lg:px-20 xl:px-24 2xl:px-32">
 					<p className="font-bold text-xl pb-4 ">Tags</p>

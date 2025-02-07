@@ -3,9 +3,13 @@ import { useQueryState } from "nuqs";
 import { useEffect, useState } from "react";
 import DialogBadge from "./SmallBadge";
 import { Button } from "./ui/button";
-import { getRandomTags } from "@/lib/utils";
 
-const MobileArticle = () => {
+
+interface Props {
+	tag: string;
+}
+
+const MobileArticle = ({tag}:Props) => {
 	const [articleId, setArticleId] = useQueryState("article");
 	const [loading, setLoading] = useState(true);
 
@@ -35,7 +39,7 @@ const MobileArticle = () => {
 								<p>2 Mins</p>
 							</div>
 							<div className="absolute bottom-4 text-white right-4">
-								<DialogBadge {...getRandomTags()}/>
+								<DialogBadge tag={tag} />
 							</div>
 							<Button
 								className="z-50 right-2 absolute top-4"

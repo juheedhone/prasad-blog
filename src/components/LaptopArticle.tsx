@@ -1,4 +1,3 @@
-import { getRandomTags } from "@/lib/utils";
 import {
 	EyeOpenIcon,
 	InstagramLogoIcon,
@@ -7,7 +6,11 @@ import {
 } from "@radix-ui/react-icons";
 import DialogBadge from "./SmallBadge";
 
-const LaptopArticle = () => {
+interface Props {
+	tag: string;
+}
+
+const LaptopArticle = ({ tag }: Props) => {
 	return (
 		<>
 			<article className="max-w-full h-48 relative overflow-hidden w-full ">
@@ -20,7 +23,7 @@ const LaptopArticle = () => {
 					<p>2 Mins</p>
 				</div>
 				<div className=" absolute bottom-4 text-white right-4">
-					<DialogBadge {...getRandomTags()} />
+					<DialogBadge tag={tag} />
 				</div>
 			</article>
 
