@@ -1,16 +1,16 @@
+import { getRandomTagColor } from "@/lib/utils";
 import { Badge } from "./ui/badge";
 
 interface Props {
-	name: string;
-	color: string;
+	tag: string;
 }
-const DialogBadge = ({ name, color }: Props) => {
+const DialogBadge = ({ tag }: Props) => {
 	return (
 		<Badge
 			className="bg-[#C7E4FF] text-black text-[10px] hover:bg-[#C7E4FF] rounded-lg"
-			style={{ backgroundColor: color }}
+			style={{ backgroundColor: getRandomTagColor() }}
 		>
-			{name}
+			{tag}
 		</Badge>
 	);
 };

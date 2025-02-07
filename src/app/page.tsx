@@ -4,6 +4,7 @@ import ArticleDialog from "@/components/ArticleDialog";
 import Badge from "@/components/Badge";
 import MobileArticle from "@/components/MobileArticle";
 import ShowMoreButton from "@/components/ShowMoreButton";
+import { BLOGS } from "@/constants/blog.constants";
 import { TAGS } from "@/constants/tags.constants";
 import { useQueryState } from "nuqs";
 import { Suspense, useState } from "react";
@@ -13,6 +14,14 @@ const Page = () => {
 	const isMobile = useIsMobile();
 	const [articleId, setArticleId] = useQueryState("article");
 	const [badgeShowLimit, setBadgeShowLimit] = useState(5);
+	const [selectedBadge, setSelectedBadge] = useState<string>();
+
+	const filteredBlogs = BLOGS.filter((blog) => {
+		if (selectedBadge) {
+			return blog.tag === selectedBadge;
+		}
+		return true;
+	});
 
 	return (
 		<Suspense>
@@ -25,7 +34,13 @@ const Page = () => {
 						{TAGS.map((tag, index) => {
 							if (index < badgeShowLimit) {
 								return (
-									<Badge key={tag.name} name={tag.name} color={tag.color} />
+									<Badge
+										selected={selectedBadge === tag.name}
+										selectBadge={setSelectedBadge}
+										key={tag.name}
+										name={tag.name}
+										color={tag.color}
+									/>
 								);
 							}
 						})}
@@ -35,16 +50,11 @@ const Page = () => {
 						/>
 					</div>
 					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:items-center">
-						{Array(20)
-							.fill(0)
-							.map((_, index) => (
-								<ArticleDialog key={index}>
-									<Article
-										heading="Trending marketing hack for fashion"
-										time={2}
-									/>
-								</ArticleDialog>
-							))}
+						{filteredBlogs.map((blog, index) => (
+							<ArticleDialog key={index}>
+								<Article blog={blog} />
+							</ArticleDialog>
+						))}
 					</div>
 				</div>
 			)}

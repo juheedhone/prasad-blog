@@ -1,4 +1,4 @@
-export const TAGS: ITags[] = [
+export const TAGS: ITag[] = [
 	{
 		name: "Fashion",
 		color: "#FFC7C7",
@@ -44,7 +44,7 @@ export const TAGS: ITags[] = [
 		color: "#FFD7FF",
 	},
 ];
-export interface ITags {
+export interface ITag {
 	name: string;
 	color: string;
 }
