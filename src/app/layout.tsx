@@ -5,6 +5,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { Suspense } from "react";
 import "./globals.css";
+import { SanityLive } from "@/sanity/lib/live";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -35,6 +36,7 @@ export default function RootLayout({
 					<NuqsAdapter>
 						{/* <NavBar /> */}
 						{children}
+						<SanityLive/>
 						{/* <Footer /> */}
 					</NuqsAdapter>
 				</Suspense>
