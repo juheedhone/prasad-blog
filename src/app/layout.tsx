@@ -33,9 +33,9 @@ export default function RootLayout({
 			>
 				<Suspense>
 					<NuqsAdapter>
-						<NavBar />
+						{/* <NavBar /> */}
 						{children}
-						<Footer />
+						{/* <Footer /> */}
 					</NuqsAdapter>
 				</Suspense>
 			</body>
