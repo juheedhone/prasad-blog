@@ -1,3 +1,4 @@
+import type { Blog } from "@/day-one-with-sanity-nextjs/src/sanity/types";
 import {
 	EyeOpenIcon,
 	InstagramLogoIcon,
@@ -7,23 +8,24 @@ import {
 import DialogBadge from "./SmallBadge";
 
 interface Props {
-	tag: string;
+	blog: Blog;
 }
 
-const LaptopArticle = ({ tag }: Props) => {
+const LaptopArticle = ({ blog }: Props) => {
+	console.log(blog)
 	return (
 		<>
 			<article className="max-w-full h-48 relative overflow-hidden w-full ">
 				<div className="bg-[url(/card-bg.jpeg)] absolute inset-0 brightness-50 -z-10" />
 				<div className="flex flex-col justify-center h-full items-center text-white font-bold">
-					<h1>Trending marketing hack for fashion</h1>
+					<h1>{blog.title}</h1>
 				</div>
 				<div className="text-white absolute bottom-4 left-4 flex items-center text-xs">
 					<EyeOpenIcon className="mr-1 " />
-					<p>2 Mins</p>
+					<p>{blog.time}</p>
 				</div>
 				<div className=" absolute bottom-4 text-white right-4">
-					<DialogBadge tag={tag} />
+					{blog.tags?.[0] && <DialogBadge tag={blog.tags[0]} />}
 				</div>
 			</article>
 

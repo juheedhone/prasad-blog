@@ -8,9 +8,7 @@ const NavBar = () => {
 				<img src="navLogo.png" alt="logo" className="w-10 h-10" />
 				<h1 className="font-bold text-xl max-w-28">Marketing Prasad</h1>
 			</div>
-
 			<SearchInput className="hidden md:flex" />
-
 			<div className="md:hidden">
 				<img src="chamburger.png" alt="filter" />
 			</div>
