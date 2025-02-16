@@ -53,7 +53,7 @@ export default defineType({
 			name: "timeToRead",
 			title: "Time To Read Blog",
 			type: "number",
-			validation: (Rule) => Rule.required(),
+			
 		}),
 	],
 	preview: {
