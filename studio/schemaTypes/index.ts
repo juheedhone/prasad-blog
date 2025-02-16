@@ -1,5 +1,5 @@
 import blockContent from "./blockContent";
-import post from "./post";
+import blog from "./blog";
 import tag from "./tag";
 
-export const schemaTypes = [post, tag, blockContent];
+export const schemaTypes = [blog, tag, blockContent];

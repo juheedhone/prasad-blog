@@ -1,8 +1,8 @@
 import { defineField, defineType } from "sanity";
 
 export default defineType({
-	name: "post",
-	title: "Post",
+	name: "blog",
+	title: "Blog",
 	type: "document",
 	fields: [
 		defineField({
@@ -19,10 +19,9 @@ export default defineType({
 				maxLength: 96,
 			},
 		}),
-
 		defineField({
-			name: "mainImage",
-			title: "Main image",
+			name: "bgImage",
+			title: "Background image",
 			type: "image",
 			options: {
 				hotspot: true,
@@ -40,16 +39,19 @@ export default defineType({
 			type: "datetime",
 		}),
 		defineField({
-			name: "body",
-			title: "Body",
+			name: "content",
+			title: "Content",
 			type: "blockContent",
 		}),
+		defineField({
+			name: "timeToRead",
+			title: "Time To Read Blog",
+			type: "number",
+		}),
 	],
-
 	preview: {
 		select: {
 			title: "title",
-
 			media: "mainImage",
 		},
 		prepare(selection) {
