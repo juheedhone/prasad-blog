@@ -10,7 +10,10 @@ const BLOGS_QUERY = defineQuery(`
     publishedAt,
     content,
     timeToRead,
-    tag[]->{title, backgroundColor} // Expanding the reference
+    tag->{
+	title, 
+	backgroundColor
+	} // Expanding the reference
   } | order(publishedAt desc)
 `);
 

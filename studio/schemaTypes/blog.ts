@@ -33,8 +33,8 @@ export default defineType({
 		defineField({
 			name: "tag",
 			title: "Tag",
-			type: "array",
-			of: [{ type: "reference", to: { type: "tag" } }],
+			type: "reference",
+			to: { type: "tag" },
 			validation: (Rule) => Rule.required(),
 		}),
 		defineField({
@@ -53,7 +53,6 @@ export default defineType({
 			name: "timeToRead",
 			title: "Time To Read Blog",
 			type: "number",
-			
 		}),
 	],
 	preview: {
