@@ -8,7 +8,7 @@ import ShowMoreButton from "@/components/ShowMoreButton";
 import { BLOGS } from "@/constants/blog.constants";
 import { TAGS } from "@/constants/tags.constants";
 import { useQueryState } from "nuqs";
-import { Suspense, useState } from "react";
+import { useState } from "react";
 
 const BlogGrid = () => {
 	const isMobile = useIsMobile();
@@ -24,7 +24,7 @@ const BlogGrid = () => {
 	});
 
 	return (
-		<Suspense>
+		<>
 			{articleId && isMobile ? (
 				<MobileArticle tag="fashion" />
 			) : (
@@ -50,7 +50,7 @@ const BlogGrid = () => {
 						/>
 					</div>
 					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:items-center">
-						{filteredBlogs.map((blog, index) => (
+						{blogs.map((blog, index) => (
 							<ArticleDialog key={index}>
 								<Article blog={blog} />
 							</ArticleDialog>
@@ -58,7 +58,7 @@ const BlogGrid = () => {
 					</div>
 				</div>
 			)}
-		</Suspense>
+		</>
 	);
 };
 
