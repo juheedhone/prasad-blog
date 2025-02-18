@@ -1,36 +1,40 @@
 "use client";
 import useIsMobile from "@/app/hooks/useIsMobile";
 import Article from "@/components/Article";
-import ArticleDialog from "@/components/ArticleDialog";
 import Badge from "@/components/Badge";
 import MobileArticle from "@/components/MobileArticle";
 import ShowMoreButton from "@/components/ShowMoreButton";
-import { BLOGS } from "@/constants/blog.constants";
+import type { IBlog } from "@/constants/blog.constants";
 import { TAGS } from "@/constants/tags.constants";
 import { useQueryState } from "nuqs";
 import { useState } from "react";
+import ArticleDialog from "./ArticleDialog";
 
-const BlogGrid = () => {
+interface Props {
+	blogs: IBlog[];
+}
+
+const BlogGrid = ({ blogs }: Props) => {
 	const isMobile = useIsMobile();
 	const [articleId, setArticleId] = useQueryState("article");
 	const [badgeShowLimit, setBadgeShowLimit] = useState(5);
 	const [selectedBadge, setSelectedBadge] = useState<string>();
 
-	const filteredBlogs = BLOGS.filter((blog) => {
-		if (selectedBadge) {
-			return blog.tag === selectedBadge;
-		}
-		return true;
-	});
+	// const filteredBlogs = blog.filter((blog) => {
+	// 	if (selectedBadge) {
+	// 		return blog.tag === selectedBadge;
+	// 	}
+	// 	return true;
+	// });
 
 	return (
 		<>
 			{articleId && isMobile ? (
 				<MobileArticle tag="fashion" />
 			) : (
-				<div className="px-4 pb-36 pt-28 h-full sm:px-8 md:px-10 lg:px-20 xl:px-24 2xl:px-32">
-					<p className="font-bold text-xl pb-4 ">Tags</p>
-					<div className="pb-8 gap-2 sm:gap-4 flex flex-wrap">
+				<div className="h-full px-4 pb-36 pt-28 sm:px-8 md:px-10 lg:px-20 xl:px-24 2xl:px-32">
+					<p className="pb-4 text-xl font-bold ">Tags</p>
+					<div className="flex flex-wrap gap-2 pb-8 sm:gap-4">
 						{TAGS.map((tag, index) => {
 							if (index < badgeShowLimit) {
 								return (
@@ -49,9 +53,9 @@ const BlogGrid = () => {
 							badgeShowLimit={badgeShowLimit}
 						/>
 					</div>
-					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  xl:grid-cols-4 2xl:grid-cols-5 gap-4 sm:items-center">
-						{blogs.map((blog, index) => (
-							<ArticleDialog key={index}>
+					<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 sm:items-center">
+						{blogs.map((blog) => (
+							<ArticleDialog key={blog.title}>
 								<Article blog={blog} />
 							</ArticleDialog>
 						))}

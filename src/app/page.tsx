@@ -4,14 +4,27 @@ import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { defineQuery } from "next-sanity";
 import { Suspense } from "react";
 import { sanityFetch } from "../../studio/live";
+import Image from "next/image";
+
+// const BLOGS_QUERY = defineQuery(`
+//   *[_type == "blog"]{
+//     title,
+//     slug,
+//     bgImage,
+//     publishedAt,
+//     content,
+//     timeToRead,
+//     tag->{
+// 	title,
+// 	backgroundColor
+// 	}
+//   } | order(publishedAt desc)
+// `);
 
 const BLOGS_QUERY = defineQuery(`
   *[_type == "blog"]{
     title,
-    slug,
-    bgImage,
-    publishedAt,
-    content,
+	"bgImage": bgImage.asset->url,
     timeToRead,
     tag->{
 	title,
@@ -33,7 +46,8 @@ const Page = async () => {
 
 	return (
 		<Suspense>
-			<BlogGrid />
+			
+			<BlogGrid blogs={blogs} />
 		</Suspense>
 	);
 };
