@@ -1,10 +1,10 @@
-export interface IBlog {
+interface IBlog {
 	heading: string;
 	time: number;
 	tag: string;
 }
 
-export const BLOGS: IBlog[] = [
+const BLOGS: IBlog[] = [
 	{
 		heading: "Top 10 Fashion Trends for 2025",
 		time: 2,
@@ -70,7 +70,7 @@ export const BLOGS: IBlog[] = [
 		time: 2,
 		tag: "Photography",
 	},
-	
+
 	{
 		heading: "How to Write Engaging Content for Your Blog",
 		time: 2,
@@ -82,7 +82,7 @@ export const BLOGS: IBlog[] = [
 		time: 2,
 		tag: "Business",
 	},
-	
+
 	{
 		heading: "Emerging Tech Trends That Will Shape the Future",
 		time: 2,
@@ -98,5 +98,4 @@ export const BLOGS: IBlog[] = [
 		time: 2,
 		tag: "Travel",
 	},
-	
 ];
