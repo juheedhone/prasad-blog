@@ -4,22 +4,6 @@ import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { defineQuery } from "next-sanity";
 import { Suspense } from "react";
 import { sanityFetch } from "../../studio/live";
-import Image from "next/image";
-
-// const BLOGS_QUERY = defineQuery(`
-//   *[_type == "blog"]{
-//     title,
-//     slug,
-//     bgImage,
-//     publishedAt,
-//     content,
-//     timeToRead,
-//     tag->{
-// 	title,
-// 	backgroundColor
-// 	}
-//   } | order(publishedAt desc)
-// `);
 
 const BLOGS_QUERY = defineQuery(`
   *[_type == "blog"]{
@@ -33,8 +17,15 @@ const BLOGS_QUERY = defineQuery(`
   } | order(publishedAt desc)
 `);
 
+const TAGS_QUERY = defineQuery(`*[_type == "tag"]{
+  title,
+  backgroundColor
+}`);
+
 const Page = async () => {
 	const { data: blogs } = await sanityFetch({ query: BLOGS_QUERY });
+	const { data: tags } = await sanityFetch({ query: TAGS_QUERY });
+	// console.log(tags);
 	console.log(blogs);
 	const urlFor = (source: SanityImageSource) =>
 		imageUrlBuilder({ dataset: "production", projectId: "4elu8cpw" }).image(
@@ -46,8 +37,7 @@ const Page = async () => {
 
 	return (
 		<Suspense>
-			
-			<BlogGrid blogs={blogs} />
+			<BlogGrid blogs={blogs} tags={tags} />
 		</Suspense>
 	);
 };
