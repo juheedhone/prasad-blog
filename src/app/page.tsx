@@ -23,13 +23,10 @@ const TAGS_QUERY = defineQuery(`*[_type == "tag"]{
   backgroundColor
 }`);
 
-const BLOG_QUERY = defineQuery(`*[_type == "blog"]{...}|order(date desc)`);
-
 const Page = async () => {
 	const { data: blogs } = await sanityFetch({ query: BLOGS_QUERY });
 	const { data: tags } = await sanityFetch({ query: TAGS_QUERY });
-	const { data: mobiles } = await sanityFetch({ query: BLOG_QUERY });
-	console.log(mobiles);
+
 	console.log(tags);
 	console.log(blogs);
 	const urlFor = (source: SanityImageSource) =>
