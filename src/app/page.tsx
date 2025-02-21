@@ -9,6 +9,7 @@ const BLOGS_QUERY = defineQuery(`
   *[_type == "blog"]{
     title,
 	"bgImage": bgImage.asset->url,
+	slug,
     timeToRead,
     tag->{
 	title,
@@ -22,10 +23,14 @@ const TAGS_QUERY = defineQuery(`*[_type == "tag"]{
   backgroundColor
 }`);
 
+const BLOG_QUERY = defineQuery(`*[_type == "blog"]{...}|order(date desc)`);
+
 const Page = async () => {
 	const { data: blogs } = await sanityFetch({ query: BLOGS_QUERY });
 	const { data: tags } = await sanityFetch({ query: TAGS_QUERY });
-	// console.log(tags);
+	const { data: mobiles } = await sanityFetch({ query: BLOG_QUERY });
+	console.log(mobiles);
+	console.log(tags);
 	console.log(blogs);
 	const urlFor = (source: SanityImageSource) =>
 		imageUrlBuilder({ dataset: "production", projectId: "4elu8cpw" }).image(

@@ -1,6 +1,7 @@
 export interface IBlog {
 	title: string;
 	timeToRead: number;
+	slug: { current: string };
 	bgImage: {
 		asset: {
 			_ref: string;
