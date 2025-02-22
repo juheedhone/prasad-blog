@@ -6,17 +6,17 @@ import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 
 interface Props {
 	blog: IBlog;
+	slug?: string;
 }
-const ArticleDialog = ({ blog }: Props) => {
-	// console.log("🚀 ~ ArticleDialog ~ blog:", blog);
-
+const ArticleDialog = ({ blog, slug }: Props) => {
+	console.log(slug, blog.slug.current, slug === blog.slug.current);
 	return (
-		<Dialog>
-			<DialogTrigger>
-				<Link href={`/${blog.slug.current}`} shallow={true}>
+		<Dialog open={slug === blog.slug.current}>
+			<Link href={`/${blog.slug.current}`} shallow={true}>
+				<DialogTrigger>
 					<Article blog={blog} />
-				</Link>
-			</DialogTrigger>
+				</DialogTrigger>
+			</Link>
 			<DialogContent
 				className="border-none max-w-[60%] p-0 pb-4 max-h-[80%] rounded-md overflow-scroll"
 				closeButtonClassName="text-white"
