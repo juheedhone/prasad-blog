@@ -32,7 +32,7 @@ const MobileArticle = ({ blog }: Props) => {
 	console.log(eventImageUrl);
 
 	return (
-		<div className="sm:hidden">
+		<div className="">
 			{loading ? (
 				<div className="flex items-center justify-center h-screen">
 					<ReloadIcon className="w-6 h-6 animate-spin" />
@@ -42,7 +42,7 @@ const MobileArticle = ({ blog }: Props) => {
 					<div className="pt-20">
 						<article className="relative h-48 max-w-full overflow-hidden ">
 							<div
-								className="absolute inset-0 h-full brightness-50 -z-10"
+								className="absolute  inset-0 h-full brightness-50 -z-10"
 								style={{ backgroundImage: `url(${eventImageUrl})` }}
 							/>
 							<div className="flex flex-col items-center justify-center h-full">

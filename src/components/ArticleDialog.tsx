@@ -1,35 +1,16 @@
 import type { IBlog } from "@/constants/blog.constants";
-import useIsMobile from "@/hooks/useIsMobile";
-import { useRouter } from "next/navigation";
-import { useQueryState } from "nuqs";
-import { useState } from "react";
 import Article from "./Article";
-import LaptopArticle from "./LaptopArticle";
+import MobileArticle from "./MobileArticle";
 import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 
 interface Props {
 	blog: IBlog;
 }
 const ArticleDialog = ({ blog }: Props) => {
-	console.log("🚀 ~ ArticleDialog ~ blog:", blog);
-	const [articleId, setArticleId] = useQueryState("article");
-	const [open, setOpen] = useState(false);
-	const router = useRouter();
-
-	const isMobile = useIsMobile();
-
-	const handleOpen = (open: boolean) => {
-		if (open === true) {
-			router.push(`/${blog.slug.current}`);
-			!isMobile && setOpen(true);
-		} else {
-			setArticleId(null);
-			setOpen(false);
-		}
-	};
+	// console.log("🚀 ~ ArticleDialog ~ blog:", blog);
 
 	return (
-		<Dialog open={open} onOpenChange={handleOpen}>
+		<Dialog>
 			<DialogTrigger>
 				<Article blog={blog} />
 			</DialogTrigger>
@@ -38,7 +19,7 @@ const ArticleDialog = ({ blog }: Props) => {
 				closeButtonClassName="text-white"
 			>
 				<div className="flex flex-col items-center justify-center">
-					<LaptopArticle tag={"photography"} />
+					<MobileArticle blog={blog} />
 				</div>
 			</DialogContent>
 		</Dialog>

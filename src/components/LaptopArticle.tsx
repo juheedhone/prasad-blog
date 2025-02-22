@@ -1,16 +1,16 @@
+import type { IBlogWithContent } from "@/constants/fetch";
 import {
 	EyeOpenIcon,
 	InstagramLogoIcon,
 	LinkedInLogoIcon,
 	TwitterLogoIcon,
 } from "@radix-ui/react-icons";
-import DialogBadge from "./SmallBadge";
 
 interface Props {
-	tag: string;
+	blog: IBlogWithContent;
 }
 
-const LaptopArticle = ({ tag }: Props) => {
+const LaptopArticle = ({ blog }: Props) => {
 	return (
 		<>
 			<article className="max-w-full h-48 relative overflow-hidden w-full ">
@@ -23,9 +23,10 @@ const LaptopArticle = ({ tag }: Props) => {
 					<p>2 Mins</p>
 				</div>
 				<div className=" absolute bottom-4 text-white right-4">
-					<DialogBadge tag={tag} />
+					{/* <DialogBadge tag={tag} /> */}
 				</div>
 			</article>
+			
 
 			<p className="p-8 w-full">
 				I got 97 cold emails last month.
