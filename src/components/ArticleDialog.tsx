@@ -1,6 +1,8 @@
 import type { IBlog } from "@/constants/blog.constants";
 import Article from "./Article";
+import Footer from "./Footer";
 import MobileArticle from "./MobileArticle";
+import NavBar from "./NavBar";
 import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 
 interface Props {
@@ -18,9 +20,9 @@ const ArticleDialog = ({ blog }: Props) => {
 				className="border-none max-w-[60%] p-0 pb-4 max-h-[80%] rounded-md overflow-scroll"
 				closeButtonClassName="text-white"
 			>
-				<div className="flex flex-col items-center justify-center">
-					<MobileArticle blog={blog} />
-				</div>
+				
+				<MobileArticle blog={blog} />
+				
 			</DialogContent>
 		</Dialog>
 	);

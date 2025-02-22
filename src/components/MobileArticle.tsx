@@ -55,7 +55,7 @@ const MobileArticle = ({ blog }: Props) => {
 								<p> {blog.timeToRead}Mins</p>
 							</div>
 							<div className="absolute text-white bottom-4 right-4">
-								{/* <DialogBadge blogs={blog} /> */}
+								<DialogBadge blogs={blog} />
 							</div>
 							<Button
 								className="absolute z-50 right-2 top-4"
@@ -67,7 +67,7 @@ const MobileArticle = ({ blog }: Props) => {
 							</Button>
 						</article>
 					</div>
-					{/* <p className="p-8 text-lg leading-10">{blog.content}</p> */}
+
 					<div className="p-8 text-lg leading-10 ">
 						<PortableText value={blog.content} />
 					</div>
