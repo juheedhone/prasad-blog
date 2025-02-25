@@ -41,8 +41,8 @@ const MobileArticle = async ({ blog }: Props) => {
 				</div>
 			) : ( */}
 			<>
-				<div className="pt-20">
-					<article className="relative h-48 max-w-full overflow-hidden ">
+				<div className="">
+					<article className="relative h-48 max-w-full overflow-hidden  ">
 						<div
 							className="absolute  inset-0 h-full brightness-50 -z-10"
 							style={{ backgroundImage: `url(${eventImageUrl})` }}
