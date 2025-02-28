@@ -1,21 +1,18 @@
+import type { ITag } from "@/constants/tags.constants";
 import { Badge as BadgeComponent } from "./ui/badge";
 
 interface Props {
-	color: string;
-	name: string;
-	selectBadge: (tag?: string) => void;
-	selected: boolean;
+	tags: ITag;
 }
 
-const Badge = ({ color, name, selectBadge, selected }: Props) => {
+const Badge = ({ tags }: Props) => {
 	return (
 		<>
 			<BadgeComponent
-				className={`text-black border-2 px-4 py-2 rounded-xl hover:cursor-pointer hover:brightness-90 hover:scale-110 select-none transition-all ${selected ? " border-black border" : ""}`}
-				style={{ backgroundColor: color }}
-				onClick={() => selectBadge(name)}
+				className={`text-black border-2 px-4 py-2 rounded-xl hover:cursor-pointer hover:brightness-90 hover:scale-110 select-none transition-all " border-black border" : ""}`}
+				style={tags}
 			>
-				{name}
+				{tags.title}
 			</BadgeComponent>
 		</>
 	);

@@ -1,67 +1,79 @@
-import { Cross2Icon, EyeOpenIcon, ReloadIcon } from "@radix-ui/react-icons";
-import { useQueryState } from "nuqs";
-import { useEffect, useState } from "react";
+import type { IBlog } from "@/constants/blog.constants";
+import { urlFor } from "@/lib/utils";
+import { Cross2Icon, EyeOpenIcon } from "@radix-ui/react-icons";
+import { PortableText, defineQuery } from "next-sanity";
+import Link from "next/link";
+import { sanityFetch } from "../../studio/live";
+import PortableImageComponent from "./PortableImageComponent";
 import DialogBadge from "./SmallBadge";
 import { Button } from "./ui/button";
 
+const BLOG_QUERY = defineQuery(`
+  *[_type == "blog" && slug.current == $slug][0]{
+	content,
+  }
+`);
 
 interface Props {
-	tag: string;
+	blog: IBlog;
 }
 
-const MobileArticle = ({tag}:Props) => {
-	const [articleId, setArticleId] = useQueryState("article");
-	const [loading, setLoading] = useState(true);
+const MobileArticle = async ({ blog }: Props) => {
+	const {
+		data: { content },
+	} = await sanityFetch({
+		query: BLOG_QUERY,
+		params: { slug: blog.slug.current },
+	});
 
-	useEffect(() => {
-		const timer = setTimeout(() => setLoading(false), 500);
-		return () => clearTimeout(timer);
-	}, []);
+	const eventImageUrl = blog ? urlFor(blog.bgImage).url() : null;
+	const components = {
+		types: {
+			image: PortableImageComponent,
+		},
+	};
 
 	return (
-		<div className="sm:hidden">
-			{loading ? (
+		<div>
+			{/* {loading ? (
 				<div className="flex items-center justify-center h-screen">
-					<ReloadIcon className="animate-spin h-6 w-6" />
+					<ReloadIcon className="w-6 h-6 animate-spin" />
 				</div>
-			) : (
-				<>
-					<div className="pt-20">
-						<article className=" max-w-full h-48 relative overflow-hidden">
-							<div className="bg-[url(/card-bg.jpeg)] absolute inset-0 brightness-50 -z-10 h-full" />
-							<div className="flex flex-col justify-center h-full items-center">
-								<h1 className=" text-white flex flex-col items-center text-xl font-bold text-center">
-									Trending marketing hack for fashion
-								</h1>
-							</div>
-							<div className="text-white absolute bottom-4 left-4 flex items-center text-xs">
-								<EyeOpenIcon className="mr-1" />
-								<p>2 Mins</p>
-							</div>
-							<div className="absolute bottom-4 text-white right-4">
-								<DialogBadge tag={tag} />
-							</div>
+			) : ( */}
+			<>
+				<div className="">
+					<article className="relative h-48 max-w-full overflow-hidden  ">
+						<div
+							className="absolute  inset-0 h-full brightness-50 -z-10"
+							style={{ backgroundImage: `url(${eventImageUrl})` }}
+						/>
+						<div className="flex flex-col items-center justify-center h-full">
+							<h1 className="flex flex-col items-center text-xl font-bold text-center text-white ">
+								{blog.title}
+							</h1>
+						</div>
+						<div className="absolute flex items-center text-xs text-white bottom-4 left-4">
+							<EyeOpenIcon className="mr-1" />
+							<p> {blog.timeToRead}Mins</p>
+						</div>
+						<div className="absolute text-white bottom-4 right-4">
+							<DialogBadge blogs={blog} />
+						</div>
+						<Link href="/">
 							<Button
-								className="z-50 right-2 absolute top-4"
+								className="absolute z-50 right-2 top-4 hover:bg-transparent hover:scale-125 transition-all hover:rotate-90"
 								variant="ghost"
 								size="icon"
-								onClick={() => setArticleId(null)}
 							>
-								<Cross2Icon className="h-6 w-6 text-white" />
+								<Cross2Icon className="w-6 h-6 text-white" />
 							</Button>
-						</article>
-					</div>
-					<p className="p-8 leading-10 text-lg">
-						I got 97 cold emails last month. The only one I replied to didn't
-						ask me to.
-						<br /> Lizzy told me that's her secret.
-						<br /> “I stopped asking for a quick call and clarified I wasn't
-						asking for anything. Responses went from 5% to 25%.”
-						<br /> Don't ask, don't get
-					</p>
-					<img src="lapArticle.svg" alt="" className="pt-0 p-8" />
-				</>
-			)}
+						</Link>
+					</article>
+				</div>
+				<div className="p-8 text-lg leading-10 ">
+					<PortableText value={content} components={components} />
+				</div>
+			</>
 		</div>
 	);
 };

@@ -1,18 +1,16 @@
-import type { Blog } from "@/day-one-with-sanity-nextjs/src/sanity/types";
+import type { IBlogWithContent } from "@/constants/fetch";
 import {
 	EyeOpenIcon,
 	InstagramLogoIcon,
 	LinkedInLogoIcon,
 	TwitterLogoIcon,
 } from "@radix-ui/react-icons";
-import DialogBadge from "./SmallBadge";
 
 interface Props {
-	blog: Blog;
+	blog: IBlogWithContent;
 }
 
 const LaptopArticle = ({ blog }: Props) => {
-	console.log(blog)
 	return (
 		<>
 			<article className="max-w-full h-48 relative overflow-hidden w-full ">
@@ -25,9 +23,10 @@ const LaptopArticle = ({ blog }: Props) => {
 					<p>{blog.time}</p>
 				</div>
 				<div className=" absolute bottom-4 text-white right-4">
-					{blog.tags?.[0] && <DialogBadge tag={blog.tags[0]} />}
+					{/* <DialogBadge tag={tag} /> */}
 				</div>
 			</article>
+			
 
 			<p className="p-8 w-full">
 				I got 97 cold emails last month.

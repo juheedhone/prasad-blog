@@ -1,15 +1,11 @@
-import { TAGS } from "@/constants/tags.constants";
+import imageUrlBuilder from "@sanity/image-url";
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
-
-export const getRandomTags = () => {
-	const randomIndex = Math.floor(Math.random() * TAGS.length);
-	return TAGS[randomIndex];
-};
 
 export const getRandomTagColor = () => {
 	const randomColors = [
@@ -27,3 +23,8 @@ export const getRandomTagColor = () => {
 	];
 	return randomColors[Math.floor(Math.random() * randomColors.length)];
 };
+
+export const urlFor = (source: SanityImageSource) =>
+	imageUrlBuilder({ dataset: "production", projectId: "4elu8cpw" }).image(
+		source,
+	);
