@@ -22,8 +22,6 @@ const ArticleDialog = ({ blog, slug }: Props) => {
 				closeButtonClassName="text-white"
 			>
 				<MobileArticle blog={blog} />
-				{/* <LaptopArticle blog={blog.bgImage.alt} /> */}
-				{/* <MobileArticle blog={blog} /> */}
 			</DialogContent>
 		</Dialog>
 	);
