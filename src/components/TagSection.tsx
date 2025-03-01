@@ -18,6 +18,7 @@ const TagSection = ({ tags }: Props) => {
 					<Badge tags={tag} key={tag.title} />
 				))}
 				<ShowMoreButton
+					totalTagsCount={tags.length}
 					onClick={setBadgeShowLimit}
 					badgeShowLimit={badgeShowLimit}
 				/>
