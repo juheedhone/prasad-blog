@@ -1,6 +1,9 @@
 import BlogGrid from "@/components/BlogGrid";
 import { BLOGS_QUERY, TAGS_QUERY } from "@/constants/sanityQueries.constants";
+import { useEffect } from "react";
 import { sanityFetch } from "../../../studio/live";
+
+
 
 const Page = async ({
 	params,

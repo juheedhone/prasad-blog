@@ -3,7 +3,7 @@ import { EyeOpenIcon } from "@radix-ui/react-icons";
 import DialogBadge from "./SmallBadge";
 
 interface Props {
-	blog: Blog;
+	blog: IBlog;
 }
 const ArticleCard = ({ blog }: Props) => {
 	return (
