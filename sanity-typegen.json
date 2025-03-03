@@ -1,5 +1,0 @@
-{
-	"path": "../prasad-blog/src/**/*.{ts,tsx,js,jsx}",
-	"schema": "./schema.json",
-	"generates": "../prasad-blog/src/sanity/types.ts"
-}

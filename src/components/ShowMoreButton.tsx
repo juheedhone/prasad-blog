@@ -1,14 +1,14 @@
-import { TAGS } from "@/constants/tags.constants";
 import { Button } from "./ui/button";
 
 interface Props {
 	onClick: (value: number) => void;
 	badgeShowLimit: number;
+	totalTagsCount: number;
 }
-const ShowMoreButton = ({ onClick, badgeShowLimit }: Props) => {
+const ShowMoreButton = ({ totalTagsCount, onClick, badgeShowLimit }: Props) => {
 	return (
 		<Button
-			onClick={() => onClick(badgeShowLimit > 5 ? 5 : TAGS.length)}
+			onClick={() => onClick(badgeShowLimit > 5 ? 5 : totalTagsCount)}
 			variant="ghost"
 			className="text-[#0288D1] hover:text-[#0288d1] rounded-xl"
 		>
