@@ -1,33 +1,19 @@
 import type { IBlog } from '@/constants/blog.constants';
 import { urlFor } from '@/lib/utils';
 import { Cross2Icon, EyeOpenIcon } from '@radix-ui/react-icons';
-import { PortableText, defineQuery } from 'next-sanity';
+import { PortableText } from 'next-sanity';
 import Link from 'next/link';
-import { sanityFetch } from '../../studio/live';
 import Footer from './Footer';
 import NavBar from './NavBar';
 import PortableImageComponent from './PortableImageComponent';
 import DialogBadge from './SmallBadge';
 import { Button } from './ui/button';
 
-const BLOG_QUERY = defineQuery(`
-  *[_type == "blog" && slug.current == $slug][0]{
-	content,
-  }
-`);
-
 interface Props {
 	blog: IBlog;
 }
 
-const MobileArticle = async ({ blog }: Props) => {
-	const {
-		data: { content },
-	} = await sanityFetch({
-		query: BLOG_QUERY,
-		params: { slug: blog.slug.current },
-	});
-
+const MobileArticle = ({ blog }: Props) => {
 	const eventImageUrl = blog ? urlFor(blog.bgImage).url() : null;
 	const components = {
 		types: {
@@ -76,7 +62,7 @@ const MobileArticle = async ({ blog }: Props) => {
 					</article>
 				</div>
 				<div className="p-8 text-lg leading-10 ">
-					<PortableText value={content} components={components} />
+					<PortableText value={blog.content} components={components} />
 				</div>
 
 				<div className="block md:hidden lg:hidden">
