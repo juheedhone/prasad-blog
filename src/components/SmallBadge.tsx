@@ -1,15 +1,14 @@
-import type { IBlog } from "@/constants/blog.constants";
-
 interface Props {
-	blogs: IBlog;
+	backgroundColor: string;
+	title: string;
 }
-const DialogBadge = ({ blogs }: Props) => {
+const DialogBadge = ({ backgroundColor, title }: Props) => {
 	return (
 		<span
 			className=" text-black text-[10px] hover:bg-[#C7E4FF] rounded-lg p-2"
-			style={{ backgroundColor: blogs.tag.backgroundColor }}
+			style={{ backgroundColor: backgroundColor }}
 		>
-			{blogs.tag.title}
+			{title}
 		</span>
 	);
 };

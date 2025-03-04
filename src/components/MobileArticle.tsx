@@ -1,4 +1,4 @@
-import type { IBlog } from '@/constants/blog.constants';
+import type { IBlogWithContent } from '@/constants/fetch';
 import { urlFor } from '@/lib/utils';
 import { Cross2Icon, EyeOpenIcon } from '@radix-ui/react-icons';
 import { PortableText } from 'next-sanity';
@@ -10,7 +10,7 @@ import DialogBadge from './SmallBadge';
 import { Button } from './ui/button';
 
 interface Props {
-	blog: IBlog;
+	blog: IBlogWithContent;
 }
 
 const MobileArticle = ({ blog }: Props) => {
@@ -48,7 +48,10 @@ const MobileArticle = ({ blog }: Props) => {
 							<p> {blog.timeToRead}Mins</p>
 						</div>
 						<div className="absolute text-white bottom-4 right-4">
-							<DialogBadge blogs={blog} />
+							<DialogBadge
+								title={blog.tag.title}
+								backgroundColor={blog.tag.backgroundColor}
+							/>
 						</div>
 						<Link href="/">
 							<Button

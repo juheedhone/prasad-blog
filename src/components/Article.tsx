@@ -1,6 +1,6 @@
-import type { IBlog } from "@/constants/blog.constants";
-import { EyeOpenIcon } from "@radix-ui/react-icons";
-import DialogBadge from "./SmallBadge";
+import type { IBlog } from '@/constants/blog.constants';
+import { EyeOpenIcon } from '@radix-ui/react-icons';
+import DialogBadge from './SmallBadge';
 
 interface Props {
 	blog: IBlog;
@@ -21,7 +21,10 @@ const ArticleCard = ({ blog }: Props) => {
 					<p>{blog.timeToRead} Mins</p>
 				</div>
 				<div className="absolute text-white bottom-4 right-4">
-					<DialogBadge blogs={blog} />
+					<DialogBadge
+						title={blog.tag.title}
+						backgroundColor={blog.tag.backgroundColor}
+					/>
 				</div>
 			</div>
 		</article>

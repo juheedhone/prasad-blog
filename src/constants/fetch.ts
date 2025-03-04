@@ -1,8 +1,11 @@
+import type { TypedObject } from 'sanity';
+
 export interface IBlogWithContent {
+	id: string;
 	title: string;
 	timeToRead: number;
 	slug: string;
-	content: string;
+	content: TypedObject | TypedObject[];
 	bgImage: {
 		asset: {
 			_ref: string;
