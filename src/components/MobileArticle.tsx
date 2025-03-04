@@ -1,12 +1,14 @@
-import type { IBlog } from "@/constants/blog.constants";
-import { urlFor } from "@/lib/utils";
-import { Cross2Icon, EyeOpenIcon } from "@radix-ui/react-icons";
-import { PortableText, defineQuery } from "next-sanity";
-import Link from "next/link";
-import { sanityFetch } from "../../studio/live";
-import PortableImageComponent from "./PortableImageComponent";
-import DialogBadge from "./SmallBadge";
-import { Button } from "./ui/button";
+import type { IBlog } from '@/constants/blog.constants';
+import { urlFor } from '@/lib/utils';
+import { Cross2Icon, EyeOpenIcon } from '@radix-ui/react-icons';
+import { PortableText, defineQuery } from 'next-sanity';
+import Link from 'next/link';
+import { sanityFetch } from '../../studio/live';
+import Footer from './Footer';
+import NavBar from './NavBar';
+import PortableImageComponent from './PortableImageComponent';
+import DialogBadge from './SmallBadge';
+import { Button } from './ui/button';
 
 const BLOG_QUERY = defineQuery(`
   *[_type == "blog" && slug.current == $slug][0]{
@@ -41,8 +43,11 @@ const MobileArticle = async ({ blog }: Props) => {
 				</div>
 			) : ( */}
 			<>
-				<div className="">
-					<article className="relative h-48 max-w-full overflow-hidden  ">
+				<div className="block md:hidden lg:hidden">
+					<NavBar />
+				</div>
+				<div className="pt-28 sm:pt-0">
+					<article className="relative h-48  max-w-full overflow-hidden  ">
 						<div
 							className="absolute  inset-0 h-full brightness-50 -z-10"
 							style={{ backgroundImage: `url(${eventImageUrl})` }}
@@ -72,6 +77,10 @@ const MobileArticle = async ({ blog }: Props) => {
 				</div>
 				<div className="p-8 text-lg leading-10 ">
 					<PortableText value={content} components={components} />
+				</div>
+
+				<div className="block md:hidden lg:hidden">
+					<Footer />
 				</div>
 			</>
 		</div>
