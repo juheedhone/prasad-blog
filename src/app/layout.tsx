@@ -36,6 +36,7 @@ export default async function RootLayout({
 				<NavBar />
 				{children}
 				{blog}
+				<div id="modal-root" />
 				<SanityLive />
 				<Footer />
 			</body>

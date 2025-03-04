@@ -7,20 +7,9 @@ interface Props {
 }
 const ArticleDialog = ({ blog }: Props) => {
 	return (
-		<Link href={`/${blog.slug.current}`}>
+		<Link href={`/${blog.slug.current}`} passHref>
 			<Article blog={blog} />
 		</Link>
-		// <Dialog>
-		// 	<DialogTrigger>
-
-		// 	</DialogTrigger>
-		// 	<DialogContent
-		// 		className="border-none md:max-w-[60%] p-0 pb-4 md:max-h-[80%]  overflow-scroll w-full h-full max-w-none max-h-none  "
-		// 		closeButtonClassName="text-white"
-		// 	>
-		// 		<MobileArticle blog={blog} />
-		// 	</DialogContent>
-		// </Dialog>
 	);
 };
 
