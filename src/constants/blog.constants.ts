@@ -1,4 +1,5 @@
 export interface IBlog {
+	id: string;
 	title: string;
 	timeToRead: number;
 	slug: { current: string };

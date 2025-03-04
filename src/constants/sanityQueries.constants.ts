@@ -1,7 +1,8 @@
-import { defineQuery } from "next-sanity";
+import { defineQuery } from 'next-sanity';
 
 export const BLOGS_QUERY = defineQuery(`
   *[_type == "blog"]{
+   "id": _id,
 	title,
 	"bgImage": bgImage.asset->url,
 	slug,
