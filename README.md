@@ -38,3 +38,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 1. type interface for blogs
 2. pass blogs to BlogGrid...add interface, pass blogs
 3. pass blog to Article... add interface, pass blog
+4. refactor badge.tsx name->tab badge
