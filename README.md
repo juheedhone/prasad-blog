@@ -39,3 +39,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 2. pass blogs to BlogGrid...add interface, pass blogs
 3. pass blog to Article... add interface, pass blog
 4. refactor badge.tsx name->tab badge
+5. // TODO: no blogs 4 this tag, should appear in center of available screen space. & should have a decent red color & font size & font weight
