@@ -1,13 +1,15 @@
+'use client';
 import type { IBlogWithContent } from '@/constants/fetch';
 import { urlFor } from '@/lib/utils';
-import { Cross2Icon, EyeOpenIcon } from '@radix-ui/react-icons';
+import { EyeOpenIcon } from '@radix-ui/react-icons';
 import { PortableText } from 'next-sanity';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import Footer from './Footer';
 import NavBar from './NavBar';
 import PortableImageComponent from './PortableImageComponent';
 import DialogBadge from './SmallBadge';
-import { Button } from './ui/button';
+import { Dialog, DialogContent } from './ui/dialog';
 
 interface Props {
 	blog: IBlogWithContent;
@@ -21,14 +23,25 @@ const MobileArticle = ({ blog }: Props) => {
 		},
 	};
 
+	const [open, setOpen] = useState(false);
+	const router = useRouter();
+
+	useEffect(() => {
+		// Open the modal automatically when the component mounts
+		setOpen(true);
+	}, []);
+
+	const onClose = () => {
+		setOpen(false);
+		router.push('/');
+	};
+
 	return (
-		<div>
-			{/* {loading ? (
-				<div className="flex items-center justify-center h-screen">
-					<ReloadIcon className="w-6 h-6 animate-spin" />
-				</div>
-			) : ( */}
-			<>
+		<Dialog open={open} onOpenChange={onClose}>
+			<DialogContent
+				className="border-none md:max-w-[60%] p-0 pb-4 md:max-h-[80%]  overflow-scroll w-full h-full max-w-none max-h-none  "
+				closeButtonClassName="text-white"
+			>
 				<div className="block md:hidden lg:hidden">
 					<NavBar />
 				</div>
@@ -53,15 +66,6 @@ const MobileArticle = ({ blog }: Props) => {
 								backgroundColor={blog.tag.backgroundColor}
 							/>
 						</div>
-						<Link href="/">
-							<Button
-								className="absolute z-50 right-2 top-4 hover:bg-transparent hover:scale-125 transition-all hover:rotate-90"
-								variant="ghost"
-								size="icon"
-							>
-								<Cross2Icon className="w-6 h-6 text-white" />
-							</Button>
-						</Link>
 					</article>
 				</div>
 				<div className="p-8 text-lg leading-10 ">
@@ -71,8 +75,8 @@ const MobileArticle = ({ blog }: Props) => {
 				<div className="block md:hidden lg:hidden">
 					<Footer />
 				</div>
-			</>
-		</div>
+			</DialogContent>
+		</Dialog>
 	);
 };
 

@@ -15,18 +15,18 @@ export const BLOGS_QUERY = defineQuery(`
 `);
 
 export const BLOG_QUERY = defineQuery(`
-    *[_type == "blog" && slug.current == $slug][0]{
-   "id": _id,
-	title,
-	"bgImage": bgImage.asset->url,
-	slug,
-	content,
-	timeToRead,
-	tag->{
-	title,
-	backgroundColor
-	}
-  } | order(publishedAt desc)
+  *[_type == "blog" && slug.current == $slug] | order(publishedAt desc)[0]{
+    "id": _id,
+    title,
+    "bgImage": bgImage.asset->url,
+    slug,
+    content,
+    timeToRead,
+    tag->{
+      title,
+      backgroundColor
+    }
+  }
 `);
 
 export const TAGS_QUERY = defineQuery(`*[_type == "tag"]{
