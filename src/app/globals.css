@@ -84,22 +84,19 @@ body {
 	z-index: 1000;
 }
 
-.modal {
-	width: 80%;
+/* .modal {
+	
 	max-width: 80%;
 	height: auto;
-
-	border: none;
+    border: none;
 	border-radius: 12px;
 	background-color: white;
-
 	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
 	font-weight: 500;
-}
+} */
 
 .close-button {
 	position: absolute;
@@ -124,5 +121,5 @@ body {
 
 .close-button:after {
 	content: "x";
-	color: black;
+	color: white;
 }

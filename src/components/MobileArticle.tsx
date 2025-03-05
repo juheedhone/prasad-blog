@@ -22,7 +22,6 @@ const MobileArticle = ({ blog }: Props) => {
 			image: PortableImageComponent,
 		},
 	};
-	
 
 	const router = useRouter();
 	const dialogRef = useRef<HTMLDialogElement>(null);
@@ -40,9 +39,13 @@ const MobileArticle = ({ blog }: Props) => {
 	}
 
 	const modalContent = (
-		<div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-			<dialog ref={dialogRef} className="modal" onClose={onDismiss}>
-				<div className="border-none  p-0 pb-4  overflow-scroll  ">
+		<div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 ">
+			<dialog
+				ref={dialogRef}
+				className="bg-white relative flex justify-center items-center font-medium md:max-w-[60%]"
+				onClose={onDismiss}
+			> 
+				<div className="border-none  p-0 pb-4 overflow-scroll  ">
 					<div className="block md:hidden lg:hidden">
 						<NavBar />
 					</div>
@@ -77,7 +80,7 @@ const MobileArticle = ({ blog }: Props) => {
 						<Footer />
 					</div>
 				</div>
-				<button type="button" onClick={onDismiss} className="close-button" />
+				<button type="button" onClick={onDismiss} className="close-button " />
 			</dialog>
 		</div>
 	);
