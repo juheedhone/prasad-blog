@@ -35,8 +35,11 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
-1. type interface for blogs
-2. pass blogs to BlogGrid...add interface, pass blogs
-3. pass blog to Article... add interface, pass blog
-4. refactor badge.tsx name->tab badge
-5. // TODO: no blogs 4 this tag, should appear in center of available screen space. & should have a decent red color & font size & font weight
+## Todo List
+
+- [✔️] type interface for blogs
+- [✔️] pass blogs to BlogGrid...add interface, pass blogs
+- [✔️] pass blog to Article... add interface, pass blog
+- [ ] no blogs 4 this tag, should appear in center of available screen space. & should have a decent red color & font size & font weight
+- [ ] fix blog modal (mobileArticle.tsx)
+- [ ] use tailwind for modal css written in globals.css
