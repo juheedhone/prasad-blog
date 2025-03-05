@@ -42,9 +42,9 @@ const MobileArticle = ({ blog }: Props) => {
 		<div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 ">
 			<dialog
 				ref={dialogRef}
-				className="bg-white relative flex justify-center items-center font-medium md:max-w-[60%]"
+				className="bg-white relative flex justify-center items-center font-medium md:max-w-[60%] lg:max-w-[80%]"
 				onClose={onDismiss}
-			> 
+			>
 				<div className="border-none  p-0 pb-4 overflow-scroll  ">
 					<div className="block md:hidden lg:hidden">
 						<NavBar />
