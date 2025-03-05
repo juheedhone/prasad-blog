@@ -22,6 +22,7 @@ const MobileArticle = ({ blog }: Props) => {
 			image: PortableImageComponent,
 		},
 	};
+	
 
 	const router = useRouter();
 	const dialogRef = useRef<HTMLDialogElement>(null);
@@ -39,20 +40,20 @@ const MobileArticle = ({ blog }: Props) => {
 	}
 
 	const modalContent = (
-		<div className="modal-backdrop">
+		<div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
 			<dialog ref={dialogRef} className="modal" onClose={onDismiss}>
-				<div className="border-none md:max-w-[60%] p-0 pb-4 md:max-h-[80%]  overflow-scroll w-full h-full max-w-none max-h-none  ">
+				<div className="border-none  p-0 pb-4  overflow-scroll  ">
 					<div className="block md:hidden lg:hidden">
 						<NavBar />
 					</div>
-					<div className="pt-28 sm:pt-0">
-						<article className="relative h-48  max-w-full overflow-hidden  ">
+					<div>
+						<article className="relative h-48  max-w-full ">
 							<div
-								className="absolute  inset-0 h-full brightness-50 -z-10"
+								className="absolute  inset-0 h-full brightness-50 w-full "
 								style={{ backgroundImage: `url(${eventImageUrl})` }}
 							/>
-							<div className="flex flex-col items-center justify-center h-full">
-								<h1 className="flex flex-col items-center text-xl font-bold text-center text-white ">
+							<div className="relative flex flex-col items-center justify-center h-full">
+								<h1 className="text-xl font-bold text-center text-white ">
 									{blog.title}
 								</h1>
 							</div>
@@ -60,7 +61,7 @@ const MobileArticle = ({ blog }: Props) => {
 								<EyeOpenIcon className="mr-1" />
 								<p> {blog.timeToRead}Mins</p>
 							</div>
-							<div className="absolute text-white bottom-4 right-4">
+							<div className="absolute bottom-4 right-4">
 								<DialogBadge
 									title={blog.tag.title}
 									backgroundColor={blog.tag.backgroundColor}
