@@ -42,15 +42,15 @@ const MobileArticle = ({ blog }: Props) => {
 		<div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 ">
 			<dialog
 				ref={dialogRef}
-				className="bg-white relative flex justify-center items-center font-medium md:max-w-[60%] lg:max-w-[80%]"
+				className="bg-white relative flex justify-center items-center font-medium w-full h-full md:max-w-xl md:h-auto rounded-lg "
 				onClose={onDismiss}
 			>
-				<div className="border-none  p-0 pb-4 overflow-scroll  ">
-					<div className="block md:hidden lg:hidden">
+				<div className="flex flex-col h-full">
+					<div className="block md:hidden ">
 						<NavBar />
 					</div>
 					<div>
-						<article className="relative h-48  max-w-full ">
+						<article className="relative h-72  w-full ">
 							<div
 								className="absolute  inset-0 h-full brightness-50 w-full "
 								style={{ backgroundImage: `url(${eventImageUrl})` }}
@@ -76,7 +76,7 @@ const MobileArticle = ({ blog }: Props) => {
 						<PortableText value={blog.content} components={components} />
 					</div>
 
-					<div className="block md:hidden lg:hidden">
+					<div className="block md:hidden">
 						<Footer />
 					</div>
 				</div>

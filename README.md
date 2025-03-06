@@ -42,5 +42,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - [✔️] pass blog to Article... add interface, pass blog
 - [done] no blogs 4 this tag, should appear in center of available screen space. & should have a decent red color & font size & font weight
 - [ ] fix blog modal (mobileArticle.tsx)
-- [ ] fix tag show more button.
+- [Done] fix tag show more button.
 - [ ] use tailwind for modal css written in globals.css
