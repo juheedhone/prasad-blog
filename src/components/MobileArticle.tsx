@@ -42,7 +42,7 @@ const MobileArticle = ({ blog }: Props) => {
 		<div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 ">
 			<dialog
 				ref={dialogRef}
-				className="bg-white relative flex justify-center items-center font-medium w-[60%] h-[80%] md:max-w-xl md:h-auto rounded-lg "
+				className="bg-white overflow-auto pt-20 sm:pt-0  relative flex justify-center items-center font-medium sm:w-[60%] sm:h-[80%] md:max-w-xl  rounded-lg "
 				onClose={onDismiss}
 			>
 				<div className="flex flex-col h-full">
@@ -52,7 +52,7 @@ const MobileArticle = ({ blog }: Props) => {
 					<div>
 						<article className="relative h-72  w-full ">
 							<div
-								className="absolute  inset-0 h-full brightness-50 w-full "
+								className="absolute rounded-lg inset-0 h-full brightness-50 w-full "
 								style={{ backgroundImage: `url(${eventImageUrl})` }}
 							/>
 							<div className="relative flex flex-col items-center justify-center h-full">
