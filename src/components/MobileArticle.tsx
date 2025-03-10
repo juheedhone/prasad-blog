@@ -52,7 +52,7 @@ const MobileArticle = ({ blog }: Props) => {
 					<div>
 						<article className="relative h-72  w-full ">
 							<div
-								className="absolute rounded-lg inset-0 h-full brightness-50 w-full "
+								className="absolute sm:rounded-lg inset-0 h-full brightness-50 w-full "
 								style={{ backgroundImage: `url(${eventImageUrl})` }}
 							/>
 							<div className="relative flex flex-col items-center justify-center h-full">
