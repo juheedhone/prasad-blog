@@ -42,7 +42,7 @@ const MobileArticle = ({ blog }: Props) => {
 		<div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 ">
 			<dialog
 				ref={dialogRef}
-				className="bg-white relative flex justify-center items-center font-medium w-full h-full md:max-w-xl md:h-auto rounded-lg "
+				className="bg-white relative flex justify-center items-center font-medium w-[60%] h-[80%] md:max-w-xl md:h-auto rounded-lg "
 				onClose={onDismiss}
 			>
 				<div className="flex flex-col h-full">
