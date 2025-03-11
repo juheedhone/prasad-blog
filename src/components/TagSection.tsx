@@ -1,4 +1,5 @@
 import type { ITag } from '@/constants/tags.constants';
+import { Cross1Icon } from '@radix-ui/react-icons';
 import { useState } from 'react';
 import ShowMoreButton from './ShowMoreButton';
 import { Badge } from './ui/badge';
@@ -14,6 +15,7 @@ const TagSection = ({ tags, selectedTag, handleTagSelect }: Props) => {
 	return (
 		<>
 			<p className="pb-4 text-xl font-bold ">Tags</p>
+
 			<div className="flex flex-wrap gap-2 pb-8 sm:gap-4">
 				{tags.slice(0, badgeShowLimit).map((tag) => (
 					// <Badge tag={tag} key={tag.title} />
@@ -24,6 +26,9 @@ const TagSection = ({ tags, selectedTag, handleTagSelect }: Props) => {
 						onClick={() => handleTagSelect(tag.title)}
 					>
 						{tag.title}
+						<div className=''>
+							<Cross1Icon />
+						</div>
 					</Badge>
 				))}
 				<ShowMoreButton
