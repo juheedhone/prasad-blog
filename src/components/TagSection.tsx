@@ -1,5 +1,4 @@
 import type { ITag } from '@/constants/tags.constants';
-import { Cross1Icon } from '@radix-ui/react-icons';
 import { useState } from 'react';
 import ShowMoreButton from './ShowMoreButton';
 import { Badge } from './ui/badge';
@@ -26,9 +25,6 @@ const TagSection = ({ tags, selectedTag, handleTagSelect }: Props) => {
 						onClick={() => handleTagSelect(tag.title)}
 					>
 						{tag.title}
-						<div className=''>
-							<Cross1Icon />
-						</div>
 					</Badge>
 				))}
 				<ShowMoreButton
