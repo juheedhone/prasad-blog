@@ -57,7 +57,7 @@ const MobileArticle = ({ blog }: Props) => {
 							<NavBar />
 						</div>
 						<div>
-							<article className="relative h-72  w-full ">
+							<article className="relative h-48 w-full ">
 								<div
 									className="absolute inset-0 h-full brightness-50 w-full "
 									style={{ backgroundImage: `url(${eventImageUrl})` }}
