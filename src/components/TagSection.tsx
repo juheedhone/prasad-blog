@@ -26,7 +26,7 @@ const TagSection = ({ tags, selectedTag, handleTagSelect }: Props) => {
 						onClick={() => handleTagSelect(tag.title)}
 					>
 						{tag.title}
-						<Cross1Icon />
+						{/* <Cross1Icon /> */}
 					</Badge>
 				))}
 
