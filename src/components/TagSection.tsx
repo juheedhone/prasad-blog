@@ -21,12 +21,21 @@ const TagSection = ({ tags, selectedTag, handleTagSelect }: Props) => {
 					// <Badge tag={tag} key={tag.title} />
 					<Badge
 						key={tag.title}
-						className={`text-black border-2 px-4 py-2 rounded-xl hover:cursor-pointer hover:brightness-90 hover:scale-110 select-none transition-all border-black ${selectedTag === tag.title ? 'outline-2 outline outline-offset-2' : ''} }`}
+						className={`text-black relative border-2 px-4 py-2 rounded-xl hover:cursor-pointer hover:brightness-90 hover:scale-110 select-none transition-all border-black ${selectedTag === tag.title ? 'outline-2 outline outline-offset-2' : ''} }`}
 						style={tag}
 						onClick={() => handleTagSelect(tag.title)}
 					>
-						{tag.title}
-						{/* <Cross1Icon /> */}
+						<span>{tag.title}</span>
+						{selectedTag === tag.title && (
+							<Cross1Icon
+								className="absolute -top-2 -right-2 bg-white border border-black rounded-full p-1 w-5 h-5 cursor-pointer"
+								onClick={(e) => {
+									e.stopPropagation();
+									handleTagSelect('');
+									setBadgeShowLimit(5);
+								}}
+							/>
+						)}
 					</Badge>
 				))}
 
