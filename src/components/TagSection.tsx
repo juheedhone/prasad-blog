@@ -1,4 +1,5 @@
 import type { ITag } from '@/constants/tags.constants';
+import { Cross1Icon } from '@radix-ui/react-icons';
 import { useState } from 'react';
 import ShowMoreButton from './ShowMoreButton';
 import { Badge } from './ui/badge';
@@ -25,8 +26,10 @@ const TagSection = ({ tags, selectedTag, handleTagSelect }: Props) => {
 						onClick={() => handleTagSelect(tag.title)}
 					>
 						{tag.title}
+						<Cross1Icon />
 					</Badge>
 				))}
+
 				<ShowMoreButton
 					totalTagsCount={tags.length}
 					onClick={setBadgeShowLimit}

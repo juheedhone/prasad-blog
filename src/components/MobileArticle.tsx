@@ -49,7 +49,7 @@ const MobileArticle = ({ blog }: Props) => {
 			<div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 ">
 				<dialog
 					ref={dialogRef}
-					className="bg-white overflow-auto pt-20 sm:pt-0  relative flex justify-center items-center font-medium sm:w-[60%] sm:h-[80%] md:max-w-xl  rounded-lg "
+					className="bg-white h-[calc(100%-55px-120px)] overflow-auto  sm:pt-0  relative flex justify-center items-center font-medium sm:w-[60%] sm:h-[80%] md:max-w-xl  md:rounded-lg "
 					onClose={onDismiss}
 				>
 					<div className="flex flex-col h-full">
@@ -86,7 +86,7 @@ const MobileArticle = ({ blog }: Props) => {
 						<div className="block md:hidden">
 							<Footer />
 						</div>
-						<div className=" flex items-center w-full px-8  pb-8 gap-4">
+						<div className="hidden md:flex items-center w-full px-8  pb-8 gap-4">
 							<div className="h-[1px] bg-black w-full" />
 							<div className="flex justify-center items-center gap-2 min-w-72">
 								<p>CLICK ON ICON TO SHARE</p>
