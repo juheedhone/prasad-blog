@@ -16,7 +16,11 @@ const TagSection = ({ tags, selectedTag, handleTagSelect }: Props) => {
 		<>
 			<p className="pb-4 text-xl font-bold ">Tags</p>
 
-			<div className="flex flex-wrap gap-2 pb-8 sm:gap-4">
+			<div
+				className={`flex flex-wrap pb-8 transition-all ${
+					selectedTag ? 'gap-3 sm:gap-4' : 'gap-2 sm:gap-4'
+				}`}
+			>
 				{tags.slice(0, badgeShowLimit).map((tag) => (
 					// <Badge tag={tag} key={tag.title} />
 					<Badge
