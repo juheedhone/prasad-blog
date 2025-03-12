@@ -38,6 +38,18 @@ const MobileArticle = ({ blog }: Props) => {
 		if (!dialogRef.current?.open) {
 			dialogRef.current?.showModal();
 		}
+
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (event.key === 'Escape') {
+				onDismiss();
+			}
+		};
+
+		window.addEventListener('keydown', handleKeyDown);
+
+		return () => {
+			window.removeEventListener('keydown', handleKeyDown);
+		};
 	}, []);
 
 	function onDismiss() {
@@ -97,7 +109,11 @@ const MobileArticle = ({ blog }: Props) => {
 							<div className="h-[1px] bg-black w-full" />
 						</div>
 					</div>
-					<button type="button" onClick={onDismiss} className="close-button" />
+					<button
+						type="button"
+						onClick={onDismiss}
+						className="close-button ease-in duration-300 delay-100"
+					/>
 				</dialog>
 			</div>
 		</>
